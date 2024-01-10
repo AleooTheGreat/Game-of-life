@@ -3,26 +3,26 @@ import os
 import subprocess
 
 inputArray = [
-          ["test0_0.in"]
-        , ["test1_0.in", "test1_1.in"]
-        , ["test0_0.in"]
+          ["test0_0.in", "test0_1.in", "test0_2.in", "test0_3.in", "test0_4.in"]
+        , ["test1_0.in", "test1_1.in", "test1_2.in", "test1_3.in", "test1_4.in", "test1_5.in", "test1_6.in", "test1_7.in", "test1_8.in", "test1_9.in"]
+        , ["test0_0.in", "test0_1.in", "test0_2.in", "test0_3.in", "test0_4.in"]
 ]
 outputArray = [
-          ["0 0 0 0 0 0 0 0 0 0 0 0 "],
-          ["0x70E1F26F6E63", "parola"],
-          ["0 0 0 0 0 0 0 0 0 0 0 0 "]
+          ["1 ", "1 1 1 0 0 1 1 1 ", "0 0 0 0 0 1 1 1 0 0 1 0 1 0 0 1 0 0 1 0 1 0 0 0 0 1 1 0 0 0 0 0 0 0 0 ", "1 1 1 0 1 1 0 1 0 0 0 1 0 0 1 1 0 1 0 1 0 1 1 0 ", "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 0 1 0 0 1 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "],
+          ["0x697771646DE22C59", "assembly", "0x6720056527046730", "abecedar", "0x656FA1F6F168746D65", "encryptme", "0x6CA3F179C97362B3F06C", "mesajscurt", "0x617363", "asc"],
+          ["1 ", "1 1 1 0 0 1 1 1 ", "0 0 0 0 0 1 1 1 0 0 1 0 1 0 0 1 0 0 1 0 1 0 0 0 0 1 1 0 0 0 0 0 0 0 0 ", "1 1 1 0 1 1 0 1 0 0 0 1 0 0 1 1 0 1 0 1 0 1 1 0 ", "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 0 1 0 0 1 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "]
 ]
 points = [
-          [50],
-          [15, 10],
-          [25]
+          [10, 10, 10, 10, 10],
+          [2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5],
+          [5, 5, 5, 5, 5]
 ]
 
 
 for file in os.listdir('.'):
         if os.path.isfile(file) and (file[-2:] == ".s" or file[-2:] == ".S"):
                         print(file)
-                        subprocess.call(["gcc", "-m32", file, "-o", "cerinta" + file[-3]], )
+                        subprocess.call(["gcc", "-m32", "-no-pie", file, "-o", "cerinta" + file[-3]], )
 
 executables = ["./cerinta0", "./cerinta1", "./cerinta2"]
 
